@@ -18,7 +18,7 @@
 >### *hw02-1.py*
 >### *John is a smart student. Mary is a beautiful girl.*
 
->> *match function return a  dictionary "{word : part of speech}"*
+>> *function "match(input_str)" return a  dictionary "{word : part of speech}"*
 
 >### (a) 依單字的字母順序，把單字及其詞類的配對印在螢幕上。
 
