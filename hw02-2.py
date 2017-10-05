@@ -17,7 +17,7 @@ print(u'依單字的字母順序，把單字及其詞類的配對印在螢幕上
 print()
 
 #(b) 找出所有單字中包含 s 這個字母的字，並將其與詞類配對印在螢幕上。
-print(u'找出所有單字中包含 s 這個字母的字 : ' , ''.join(['{{{} : {}}}\n'.format(key,value) for key,value in d.items() if 's' in key ]) , sep = '\n')
+print(u'找出所有單字中包含 s 這個字母的字 : ' , ''.join(['{{{} : {}}}\n'.format(key,value) for key,value in d.items()]) , sep = '\n')
 
 
 
@@ -47,8 +47,7 @@ def insert_data(data , input_str , flag):
         salary = int(tmp[4].replace(',' , ''))
         data_tmp.append(salary)
 
-        data.append(data_tmp)            
-
+        data.append(data_tmp)
     else:
         data = [input_str.split(' ')]
         
@@ -59,20 +58,21 @@ def open_file(filename , data):
         with open(filename) as f:
             line = f.readline()
             
-            insert_data(data , line.rstrip('\n') , False)
+            data = insert_data(data , line.rstrip('\n') , False)
+            
             while True:
                 data_tmp = []
                 line = f.readline()
                 if not line:
                     break
-                insert_data(data , line.rstrip('\n') , True)
+                data = insert_data(data , line.rstrip('\n') , True)
             return data
     except FileNotFoundError:
         print('File Not Found')
               
 data = []
 data = open_file('input2.txt' , data)
-print(u'結構' , '\n'.join([str(i) for i in data]) ,sep = '\n')
+print(u'結構 :' , '\n'.join([str(i) for i in data]) ,sep = '\n')
 print()
 
 #(b) 假設又招入兩個新手：常遇春、朱元璋，分別被編為 A578、A579，職位是教徒，單位是巨木堂，月薪是 22,000。請將這些資訊加入你的結構中。請不要手動將資料鍵入哦！
